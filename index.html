@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalogClock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="clockContaier">
+        <div id="clockLabels">
+            <div class="clockLabel">
+                <div class="nums">12</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">1</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">2</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">3</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">4</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">5</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">6</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">7</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">8</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">9</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">10</div>
+            </div>
+            <div class="clockLabel">
+                <div class="nums">11</div>
+            </div>
+        </div>
+        <div id="clockhands">
+            <div id="hrhand" class="hand"></div>
+            <div id="sechand" class="hand"></div>
+            <div id="minhand" class="hand"></div>
+            <div id="handCenter"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const lables = document.getElementsByClassName("clockLabel")
+    const hands = document.getElementsByClassName("hand")
+    const hrHand = document.getElementById("hrhand")
+    const secHand = document.getElementById("sechand")
+    const minHand = document.getElementById("minhand")
+    const nums = document.getElementsByClassName("nums")
+
+    let deg = 30
+    for (let i = 0; i < lables.length; i++) {
+        lables[i].style.transform = `rotate(${deg * i}deg)`
+        nums[i].style.transform = `rotate(${deg * (12 - i)}deg)`
+    }
+
+
+    function setInitialRotation(element, initialRotation) {
+        const stylesheet = document.styleSheets[0]
+
+        const rule = `@keyframes rotate_${element.id} {
+            from {
+                transform: rotate(${initialRotation}deg);
+            }
+            to {
+                transform: rotate(${initialRotation + 360}deg);
+            }
+        }`
+
+        stylesheet.insertRule(rule, stylesheet.cssRules.length);
+
+    }
+
+    function getTimeDegrees() {
+        const currentTime = new Date();
+        const hours = currentTime.getHours() % 12; // Convert to 12-hour format
+        const minutes = currentTime.getMinutes();
+        const seconds = currentTime.getSeconds();
+
+        const hourDegree = (hours * 30) + (0.5 * minutes); // 30 degrees per hour + 0.5 degrees per minute
+        const minuteDegree = minutes * 6; // 6 degrees per minute
+        const secondDegree = seconds * 6; // 6 degrees per second
+
+        return {
+            hour: hourDegree,
+            minute: minuteDegree,
+            second: secondDegree
+        };
+    }
+
+    const clockHands = getTimeDegrees();
+
+    setInitialRotation(hrHand, clockHands.hour)
+    hrHand.style.animation = `rotate_${hrHand.id} 216000s steps(60) infinite`;
+    setInitialRotation(minHand, clockHands.minute)
+    minHand.style.animation = `rotate_${minHand.id} 3600s steps(60) infinite`;
+    setInitialRotation(secHand, clockHands.second)
+    secHand.style.animation = `rotate_${secHand.id} 60s steps(60) infinite`;
+</script>
+
+</html>
