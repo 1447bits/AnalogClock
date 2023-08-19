@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+
 :root {
-    --clockWidth: 500px;
+    --clockWidth: 90vmin;
 }
 
 * {
@@ -8,20 +10,26 @@
 }
 
 body {
-    background-color: rgb(52, 50, 50);
-    color: rgb(222, 219, 219);
+    background: linear-gradient(to right, #e1ebff, #cad9f8, #caf8f8, #caf8ec , #ccf0e6, #c0ead3, #c3eac0);
 }
 
 #clockContaier {
+
+    /* can remove margin */
+    margin-top: 5vmin;
+
     position: relative;
     width: var(--clockWidth);
+    margin-inline: auto;
     aspect-ratio: 1;
-    background-color: rgb(95, 87, 87);
+    background-color: rgb(245, 222, 230);
     border-radius: 50%;
+    box-shadow: 0px 10px 60px 5px rgba(50, 50, 93, 0.25), rgba(50, 50, 93, 0.25) 0px -30px 60px -12px inset ,rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset, rgba(0, 0, 0, 0.3) 0px -18px 36px -18px inset;
 }
 
 #clockhands,
 #clockLabels {
+    color: rgba(22, 21, 37, 0.786);
     position: absolute;
     height: var(--clockWidth);
     aspect-ratio: 1;
@@ -30,13 +38,16 @@ body {
 
 #clockLabels>div {
     position: absolute;
-    left: 47.5%;
+    left: 45%;
     height: 96%;
-    width: 5%;
+    width: 10%;
     transform-origin: 50% 50%;
     padding-top: 2%;
     padding-bottom: 2%;
     text-align: center;
+
+    font-family: 'Caprasimo';
+    font-size: 4vmin;
 }
 
 
