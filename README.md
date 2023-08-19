@@ -1,6 +1,6 @@
 # AnalogClock
 
-## deployment - [Link](1447bits.github.io/AnalogClock)
+## deployment - [Link](https://1447bits.github.io/AnalogClock/)
 
 ## Looks Something Like This
 <center>
