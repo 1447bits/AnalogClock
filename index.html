@@ -119,9 +119,9 @@
     const clockHands = getTimeDegrees();
 
     setInitialRotation(hrHand, clockHands.hour)
-    hrHand.style.animation = `rotate_${hrHand.id} 216000s steps(60) infinite`;
+    hrHand.style.animation = `rotate_${hrHand.id} 216000s linear infinite`;
     setInitialRotation(minHand, clockHands.minute)
-    minHand.style.animation = `rotate_${minHand.id} 3600s steps(60) infinite`;
+    minHand.style.animation = `rotate_${minHand.id} 3600s linear infinite`;
     setInitialRotation(secHand, clockHands.second)
     secHand.style.animation = `rotate_${secHand.id} 60s steps(60) infinite`;
 </script>

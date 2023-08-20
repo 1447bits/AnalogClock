@@ -18,6 +18,8 @@ body {
     /* can remove margin */
     margin-top: 5vmin;
 
+    border: 8px solid grey;
+
     position: relative;
     width: var(--clockWidth);
     margin-inline: auto;
@@ -65,6 +67,11 @@ body {
 }
 
 
+#hrhand {
+    height: 35%;
+    top: 20%;
+    background: rgb(26, 26, 64);
+}
 #minhand {
     width: 3%;
     left: 48.5%;
